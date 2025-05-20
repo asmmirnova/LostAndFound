@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru" style="overflow-x: hidden; width: 100%;">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=0.5" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Бюро находок - сервис для поиска потерянных вещей"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Бюро находок</title>
+    <style>
+      html, body, #root {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      // Prevent extreme zoom out with keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        // Only prevent extreme zoom out (Ctrl + -)
+        if ((e.ctrlKey || e.metaKey) && e.key === '-') {
+          const currentScale = document.documentElement.style.zoom || 1;
+          if (parseFloat(currentScale) <= 0.7) {
+            e.preventDefault();
+          }
+        }
+      });
+      
+      // Set initial scale
+      window.addEventListener('load', function() {
+        // Set initial zoom to 1 if it's too small
+        if (window.innerWidth / document.documentElement.clientWidth > 1.5) {
+          document.body.style.zoom = 1;
+        }
+      });
+    </script>
+  </head>
+  <body style="overflow-x: hidden; width: 100%;">
+    <noscript>Для работы приложения необходимо включить JavaScript.</noscript>
+    <div id="root" style="overflow-x: hidden; width: 100%;"></div>
+  </body>
+</html>
